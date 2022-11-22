@@ -228,8 +228,7 @@ define Device/asus_rt-ac42u
 	UIMAGE_NAME:=$(shell echo -e '\03\01\01\01RT-AC82U')
 	DEVICE_PACKAGES := ath10k-firmware-qca9984-ct kmod-usb-ledtrig-usbport
 endef
-# Missing DSA Setup
-#TARGET_DEVICES += asus_rt-ac42u
+TARGET_DEVICES += asus_rt-ac42u
 
 define Device/asus_rt-ac58u
 	$(call Device/FitImageLzma)
@@ -420,8 +419,7 @@ define Device/dlink_dap-2610
 	IMAGE/factory.bin    := append-kernel | pad-offset 6144k 160 | append-rootfs | wrgg-image | check-size
 	IMAGE/sysupgrade.bin := append-kernel | wrgg-image | pad-to $$$$(BLOCKSIZE) | append-rootfs | pad-rootfs | check-size | append-metadata
 endef
-# Missing DSA Setup
-#TARGET_DEVICES += dlink_dap-2610
+TARGET_DEVICES += dlink_dap-2610
 
 define Device/edgecore_ecw5211
 	$(call Device/FitImage)
@@ -565,6 +563,20 @@ define Device/ezviz_cs-w3-wd1200g-eup
 endef
 # Missing DSA Setup
 #TARGET_DEVICES += ezviz_cs-w3-wd1200g-eup
+
+define Device/glinet_gl-a1300
+	$(call Device/FitImage)
+	$(call Device/UbiFit)
+	DEVICE_VENDOR := GL.iNet
+	DEVICE_MODEL := GL-A1300
+	SOC := qcom-ipq4018
+	DEVICE_DTS_CONFIG := config@ap.dk01.1-c2
+	BLOCKSIZE := 128k
+	PAGESIZE := 2048
+	IMAGE_SIZE := 131072k
+	DEVICE_PACKAGE := ipq-wifi-glinet_gl-a1300
+endef
+TARGET_DEVICES += glinet_gl-a1300
 
 define Device/glinet_gl-ap1300
 	$(call Device/FitImage)
@@ -762,8 +774,7 @@ define Device/mobipromo_cm520-79f
 	PAGESIZE := 2048
 	DEVICE_PACKAGES := kmod-usb-ledtrig-usbport
 endef
-# Missing DSA Setup
-#TARGET_DEVICES += mobipromo_cm520-79f
+TARGET_DEVICES += mobipromo_cm520-79f
 
 define Device/netgear_ex61x0v2
 	$(call Device/DniImage)
@@ -817,8 +828,7 @@ define Device/netgear_rbr50
 	DEVICE_VARIANT := v1
 	NETGEAR_BOARD_ID := RBR50
 endef
-# Missing DSA Setup
-#TARGET_DEVICES += netgear_rbr50
+TARGET_DEVICES += netgear_rbr50
 
 define Device/netgear_rbs50
 	$(call Device/netgear_rbx50)
@@ -826,8 +836,7 @@ define Device/netgear_rbs50
 	DEVICE_VARIANT := v1
 	NETGEAR_BOARD_ID := RBS50
 endef
-# Missing DSA Setup
-#TARGET_DEVICES += netgear_rbs50
+TARGET_DEVICES += netgear_rbs50
 
 define Device/netgear_srx60
 	$(call Device/netgear_orbi)
@@ -842,16 +851,14 @@ define Device/netgear_srr60
 	DEVICE_MODEL := SRR60
 	NETGEAR_BOARD_ID := SRR60
 endef
-# Missing DSA Setup
-#TARGET_DEVICES += netgear_srr60
+TARGET_DEVICES += netgear_srr60
 
 define Device/netgear_srs60
 	$(call Device/netgear_srx60)
 	DEVICE_MODEL := SRS60
 	NETGEAR_BOARD_ID := SRS60
 endef
-# Missing DSA Setup
-#TARGET_DEVICES += netgear_srs60
+TARGET_DEVICES += netgear_srs60
 
 define Device/netgear_wac510
 	$(call Device/FitImage)
@@ -881,8 +888,7 @@ define Device/openmesh_a42
 	IMAGE/factory.bin := append-rootfs | pad-rootfs | openmesh-image ce_type=A42
 	IMAGE/sysupgrade.bin/squashfs := append-rootfs | pad-rootfs | sysupgrade-tar rootfs=$$$$@ | append-metadata
 endef
-# Missing DSA Setup
-#TARGET_DEVICES += openmesh_a42
+TARGET_DEVICES += openmesh_a42
 
 define Device/openmesh_a62
 	$(call Device/FitImageLzma)
@@ -898,8 +904,7 @@ define Device/openmesh_a62
 	IMAGE/sysupgrade.bin/squashfs := append-rootfs | pad-rootfs | sysupgrade-tar rootfs=$$$$@ | append-metadata
 	DEVICE_PACKAGES := ath10k-firmware-qca9888-ct
 endef
-# Missing DSA Setup
-#TARGET_DEVICES += openmesh_a62
+TARGET_DEVICES += openmesh_a62
 
 define Device/p2w_r619ac
 	$(call Device/FitzImage)
@@ -953,8 +958,7 @@ define Device/plasmacloud_pa1200
 	IMAGE/factory.bin := append-rootfs | pad-rootfs | openmesh-image ce_type=PA1200
 	IMAGE/sysupgrade.bin/squashfs := append-rootfs | pad-rootfs | sysupgrade-tar rootfs=$$$$@ | append-metadata
 endef
-# Missing DSA Setup
-#TARGET_DEVICES += plasmacloud_pa1200
+TARGET_DEVICES += plasmacloud_pa1200
 
 define Device/plasmacloud_pa2200
 	$(call Device/FitImageLzma)
@@ -970,8 +974,7 @@ define Device/plasmacloud_pa2200
 	IMAGE/sysupgrade.bin/squashfs := append-rootfs | pad-rootfs | sysupgrade-tar rootfs=$$$$@ | append-metadata
 	DEVICE_PACKAGES := ath10k-firmware-qca9888-ct
 endef
-# Missing DSA Setup
-#TARGET_DEVICES += plasmacloud_pa2200
+TARGET_DEVICES += plasmacloud_pa2200
 
 define Device/qcom_ap-dk01.1-c1
 	DEVICE_VENDOR := Qualcomm Atheros
